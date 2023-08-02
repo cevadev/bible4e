@@ -3,7 +3,7 @@ const express = require('express');
 // generamos un router especifico para capitulos de libros de la biblia
 const router = express.Router();
 
-router.get('/:bibleId/books/:bookId/chapters', (req, res) => {
+router.get('/:bibleId/book/:bookId/chapters', (req, res) => {
   res.json([
     {
       id: '3JN.intro',
