@@ -24,19 +24,40 @@ router.get('/filter', (req, res) => {
 
 // endpoint dinamico
 router.get('/:id', (req, res) => {
-  res.json([
-    {
-      id: '592420522e16049f-01',
+  const { id } = req.params;
+  if (id === '999') {
+    res.status(404).json({ message: 'Bible not found' });
+  } else {
+    res.status(200).json({
+      id: id,
       name: 'Reina Valera 1909',
-    },
-  ]);
+    });
+  }
 });
 
 router.post('/', (req, res) => {
   const body = req.body;
-  res.json({
+  res.status(201).json({
     message: 'Biblia added',
     data: body,
+  });
+});
+
+router.patch('/:id', (req, res) => {
+  const body = req.body;
+  const { id } = req.params;
+  res.json({
+    message: 'Biblia updated',
+    data: body,
+    id: id,
+  });
+});
+
+router.delete('/:id', (req, res) => {
+  const { id } = req.params;
+  res.json({
+    message: 'Bible deleted',
+    id: id,
   });
 });
 

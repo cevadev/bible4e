@@ -9,5 +9,7 @@ const port = 3000;
 routerApi(app);
 
 app.listen(port, () => {
-  console.info('La aplicacion se esta ejecutando satisfactoriamente');
+  console.info(
+    `La aplicacion se esta ejecutando satisfactoriamente en el puerto ${port}`
+  );
 });
